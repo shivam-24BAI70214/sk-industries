@@ -3,7 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const productsData = [
+/* ✅ TYPE FIX */
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  description: string;
+};
+
+const productsData: Product[] = [
   {
     id: 1,
     name: "Spako Industrial Sewing Machine",
@@ -15,7 +25,7 @@ const productsData = [
   },
   {
     id: 2,
-    name: " Spako Overlock Machine",
+    name: "Spako Overlock Machine",
     price: 3800,
     category: "Overlock Machines",
     image: "/images/IMG_4426 2.jpg",
@@ -24,9 +34,9 @@ const productsData = [
   },
   {
     id: 3,
-    name: " Spako Umbrella Machine",
+    name: "Spako Umbrella Machine",
     price: 4700,
-    category: "Overlock Machines",
+    category: "Umbrella Machines",
     image: "/images/IMG_4426 5.jpg",
     description:
       "Strong square body umbrella machine designed for long-lasting industrial performance.",
@@ -34,14 +44,16 @@ const productsData = [
 ];
 
 export default function Home() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<Product[]>([]);
   const [showCart, setShowCart] = useState(false);
 
-  const addToCart = (product) => {
+  /* ✅ FIXED TYPE */
+  const addToCart = (product: Product) => {
     setCart([...cart, product]);
   };
 
-  const removeFromCart = (index) => {
+  /* ✅ FIXED TYPE */
+  const removeFromCart = (index: number) => {
     const updated = [...cart];
     updated.splice(index, 1);
     setCart(updated);
@@ -76,7 +88,6 @@ export default function Home() {
                   cart.map((item, index) => (
                     <div key={index} className="mb-3 border-b pb-2">
 
-                      {/* CLICKABLE PRODUCT → WHATSAPP */}
                       <a
                         href={`https://wa.me/919814180664?text=Hello,%20I%20want%20to%20buy%20${item.name}`}
                         target="_blank"
@@ -173,58 +184,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* Why */}
-      <section className="bg-gray-100 py-16 text-center">
-        <h3 className="text-3xl font-semibold mb-6">Why Choose Us</h3>
-
-        <div className="grid md:grid-cols-3 gap-6 px-6">
-          <div>
-            <h4 className="font-bold">Established Since 1990</h4>
-            <p>Over three decades of trusted manufacturing excellence.</p>
-          </div>
-
-          <div>
-            <h4 className="font-bold">Direct From Manufacturer</h4>
-            <p>Factory pricing with no middlemen — ensuring best value.</p>
-          </div>
-
-          <div>
-            <h4 className="font-bold">Reliable Quality</h4>
-            <p>Engineered for durability, precision, and industrial use.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section id="about" className="py-16 px-6 text-center">
-        <h3 className="text-3xl font-semibold mb-6">About Us</h3>
-
-        <p className="max-w-2xl mx-auto text-gray-600">
-          S.K. Industries, based in Guru Arjan Dev Nagar, Ludhiana, is a trusted manufacturer of sewing and tailoring machines since 1990. 
-          With decades of experience, we specialize in delivering durable, high-performance machines used by professionals and businesses across India.
-        </p>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="bg-gray-100 py-16 text-center">
-        <h3 className="text-3xl font-semibold mb-6">Contact</h3>
-
-        <p className="text-gray-700">Guru Arjan Dev Nagar, Ludhiana, Punjab</p>
-        <p className="text-gray-700">Phone: +91-9803700284</p>
-      </section>
-
-      {/* WhatsApp */}
-      <a
-        href="https://wa.me/919814180664"
-        target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-          width="30"
-        />
-      </a>
 
       {/* Footer */}
       <footer className="bg-black text-white text-center py-6">
