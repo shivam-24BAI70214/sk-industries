@@ -7,7 +7,7 @@ const products = [
     id: 1,
     name: "Overlock Machine",
     price: 3800,
-    image: "/images/IMG_4426 2.jpg",
+    image: "/images/IMG_4426_2.jpg",
     description:
       "High-speed overlock machine designed for clean edge finishing, strong stitching, and continuous industrial use.",
   },
@@ -15,7 +15,7 @@ const products = [
     id: 2,
     name: "Embroidery Machine",
     price: 5200,
-    image: "/images/IMG_4426 3.jpg",
+    image: "/images/IMG_4426_3.jpg",
     description:
       "Advanced embroidery machine for precision designs, smooth operation, and professional-quality stitching output.",
   },
@@ -23,7 +23,7 @@ const products = [
     id: 3,
     name: "Umbrella Sewing Machine (Rounded Body)",
     price: 4500,
-    image: "/images/IMG_4426 4.jpg",
+    image: "/images/IMG_4426_4.jpg",
     description:
       "Durable umbrella sewing machine with rounded body design, ensuring stability and efficient heavy-duty stitching.",
   },
@@ -31,7 +31,7 @@ const products = [
     id: 4,
     name: "Umbrella Sewing Machine (Square Body)",
     price: 4700,
-    image: "/images/IMG_4426 5.jpg",
+    image: "/images/IMG_4426_5.jpg",
     description:
       "Robust square body umbrella machine built for industrial use, offering enhanced strength and consistent stitching quality.",
   },
@@ -39,7 +39,7 @@ const products = [
     id: 5,
     name: "Sewing Machine (Rounded Body)",
     price: 3700,
-    image: "/images/IMG_4426 6.jpg",
+    image: "/images/IMG_4426_6.jpg",
     description:
       "Compact and durable rounded body sewing machine ideal for tailoring shops, providing smooth and reliable performance.",
   },
