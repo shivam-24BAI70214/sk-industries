@@ -45,7 +45,8 @@ const productsData: Product[] = [
 
 export default function Home() {
   const [cart, setCart] = useState<Product[]>([]);
-  const [showCart, setShowCart] = useState(false);
+const [showCart, setShowCart] = useState(false);
+const [menuOpen, setMenuOpen] = useState(false);
 
   const addToCart = (product: Product) => {
     setCart((prev: Product[]) => [...prev, product]);
@@ -59,56 +60,88 @@ export default function Home() {
     <div className="font-sans bg-white text-black">
 
       {/* NAVBAR */}
-      <nav className="relative flex items-center justify-center p-6 sticky top-0 bg-white shadow z-50">
-        <h1 className="text-2xl font-bold">S.K. Industries</h1>
+      <nav className="flex items-center justify-between p-4 md:p-6 bg-white shadow sticky top-0 z-50">
 
-        <div className="absolute right-6 flex items-center space-x-6">
-          <Link href="#">Home</Link>
-          <Link href="#products">Products</Link>
-          <Link href="#about">About</Link>
-          <Link href="#contact">Contact</Link>
+  {/* LOGO */}
+  <h1 className="text-xl md:text-2xl font-bold">
+    S.K. Industries
+  </h1>
 
-          {/* CART */}
-          <div className="relative">
-            <button onClick={() => setShowCart(!showCart)}>
-              🛒 ({cart.length})
-            </button>
+  {/* DESKTOP MENU */}
+  <div className="hidden md:flex items-center space-x-6">
+    <Link href="#">Home</Link>
+    <Link href="#products">Products</Link>
+    <Link href="#about">About</Link>
+    <Link href="#contact">Contact</Link>
 
-            {showCart && (
-              <div className="absolute right-0 mt-2 w-[260px] bg-white border rounded-xl shadow-lg p-4">
-                <h2 className="font-bold mb-2">Cart</h2>
+    {/* CART */}
+    <div className="relative">
+      <button onClick={() => setShowCart(!showCart)}>
+        🛒 ({cart.length})
+      </button>
 
-                {cart.length === 0 ? (
-                  <p className="text-gray-500 text-sm">No items</p>
-                ) : (
-                  cart.map((item: Product, index: number) => (
-                    <div key={index} className="mb-3 border-b pb-2">
+      {showCart && (
+        <div className="absolute right-0 mt-2 w-[260px] bg-white border rounded-xl shadow-lg p-4">
+          <h2 className="font-bold mb-2">Cart</h2>
 
-                      <a
-                        href={`https://wa.me/919814180664?text=Hello,%20I%20want%20to%20buy%20${item.name}%20from%20S.K.%20Industries`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-semibold text-blue-600 hover:underline"
-                      >
-                        {item.name}
-                      </a>
+          {cart.length === 0 ? (
+            <p className="text-gray-500 text-sm">No items</p>
+          ) : (
+            cart.map((item: Product, index: number) => (
+              <div key={index} className="mb-3 border-b pb-2">
 
-                      <p className="text-xs text-gray-500">₹{item.price}</p>
+                <a
+                  href={`https://wa.me/919814180664?text=Hello,%20I%20want%20to%20buy%20${item.name}%20from%20S.K.%20Industries`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-blue-600 hover:underline"
+                >
+                  {item.name}
+                </a>
 
-                      <button
-                        onClick={() => removeFromCart(index)}
-                        className="text-red-500 text-xs mt-1"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  ))
-                )}
+                <p className="text-xs text-gray-500">₹{item.price}</p>
+
+                <button
+                  onClick={() => removeFromCart(index)}
+                  className="text-red-500 text-xs mt-1"
+                >
+                  Remove
+                </button>
               </div>
-            )}
-          </div>
+            ))
+          )}
         </div>
-      </nav>
+      )}
+    </div>
+  </div>
+
+  {/* MOBILE MENU BUTTON */}
+  <button
+    className="md:hidden text-2xl"
+    onClick={() => setMenuOpen(!menuOpen)}
+  >
+    ☰
+  </button>
+
+  {/* MOBILE MENU */}
+  {menuOpen && (
+    <div className="absolute top-full right-4 mt-2 w-[220px] bg-white border rounded-xl shadow-lg p-4 md:hidden z-50">
+
+      <Link href="#" className="block mb-2">Home</Link>
+      <Link href="#products" className="block mb-2">Products</Link>
+      <Link href="#about" className="block mb-2">About</Link>
+      <Link href="#contact" className="block mb-2">Contact</Link>
+
+      {/* CART INSIDE MOBILE */}
+      <div className="mt-3 border-t pt-2">
+        <button onClick={() => setShowCart(!showCart)}>
+          🛒 Cart ({cart.length})
+        </button>
+      </div>
+    </div>
+  )}
+
+</nav>
 
       {/* HERO */}
       <section className="text-center py-20 px-6 overflow-hidden">
