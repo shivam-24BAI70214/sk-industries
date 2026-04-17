@@ -92,7 +92,7 @@ export default function ProductsPage() {
 
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/919814180664?text=Hello,%20I%20want%20to%20buy%20${p.name}`}
+              href={`https://wa.me/919803700284?text=Hello,%20I%20want%20to%20buy%20${p.name}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -106,7 +106,7 @@ export default function ProductsPage() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/919814180664?text=Hello%20I%20am%20interested%20in%20your%20machines"
+        href="https://wa.me/919803700284?text=Hello%20I%20am%20interested%20in%20your%20machines"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"

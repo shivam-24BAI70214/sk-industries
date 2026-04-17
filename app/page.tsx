@@ -91,7 +91,7 @@ const [menuOpen, setMenuOpen] = useState(false);
               <div key={index} className="mb-3 border-b pb-2">
 
                 <a
-                  href={`https://wa.me/919814180664?text=Hello,%20I%20want%20to%20buy%20${item.name}%20from%20S.K.%20Industries`}
+                  href={`https://wa.me/919803700284?text=Hello,%20I%20want%20to%20buy%20${item.name}%20from%20S.K.%20Industries`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-semibold text-blue-600 hover:underline"
@@ -217,7 +217,7 @@ const [menuOpen, setMenuOpen] = useState(false);
               <button
                 onClick={() =>
                   window.open(
-                    `https://wa.me/919814180664?text=Hello,%20I%20want%20to%20buy%20${product.name}`,
+                    `https://wa.me/919803700284?text=Hello,%20I%20want%20to%20buy%20${product.name}`,
                     "_blank"
                   )
                 }
@@ -248,7 +248,7 @@ const [menuOpen, setMenuOpen] = useState(false);
         <p>📞 +91-9803700284</p>
 
         <a
-          href="https://wa.me/919814180664"
+          href="https://wa.me/919803700284"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -260,7 +260,7 @@ const [menuOpen, setMenuOpen] = useState(false);
 
       {/* FLOATING WHATSAPP */}
       <a
-        href="https://wa.me/919814180664?text=Hello%20I%20am%20interested%20in%20your%20machines"
+        href="https://wa.me/919803700284?text=Hello%20I%20am%20interested%20in%20your%20machines"
         target="_blank"
         className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg"
       >
